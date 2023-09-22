@@ -53,8 +53,9 @@ export default function Signin() {
  };
 console.log("==",data);
   var d=await axios.post('https://mernmovieashokbk.onrender.com/login', data,
-  {headers: {'content-type': 'application/x-www-form-urlencoded'},
-  withCredentials : true
+  { 
+    headers: {'content-type': 'application/x-www-form-urlencoded'}
+  
 },
   
 );
