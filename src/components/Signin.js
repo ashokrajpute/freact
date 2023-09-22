@@ -52,7 +52,7 @@ export default function Signin() {
   password:password
  };
 console.log("==",data);
-  var d=await axios.post('/login', data,
+  var d=await axios.post('https://mernmovieashokbk.onrender.com/login', data,
   {headers: {'content-type': 'application/x-www-form-urlencoded'}}
 );
 console.log("===========[]========")
@@ -77,6 +77,7 @@ console.log("load+=",d.data);
   }
 
   var authgoogle=async()=>{
+    return ;
 var d=await axios.get('/auth/google');
   if(d.data=='u r login'){
     window.alert("logined");

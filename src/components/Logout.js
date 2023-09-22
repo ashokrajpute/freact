@@ -15,7 +15,7 @@ export default function Logout() {
 
 
   var handlelogout=async ()=>{
-  var d=await axios.post('/logout');
+  var d=await axios.post('https://mernmovieashokbk.onrender.com/logout');
   console.log(d);
   if(d.data==="Logout")navigate('/');
   else{

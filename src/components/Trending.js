@@ -23,7 +23,7 @@ export default function Trending() {
       c=JSON.parse(c);
       //console.log(c);
       
-      var d=await axios.post('/isauthenticated',c,
+      var d=await axios.post('https://mernmovieashokbk.onrender.com/isauthenticated',c,
       {headers: {'content-type': 'application/x-www-form-urlencoded'}}
        
       );

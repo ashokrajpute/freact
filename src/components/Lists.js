@@ -171,7 +171,7 @@ var auth=async ()=>{
   c=JSON.parse(c);
   //console.log(c);
   
-  var d=await axios.post('/isauthenticated',c,
+  var d=await axios.post('https://mernmovieashokbk.onrender.com/isauthenticated',c,
   {headers: {'content-type': 'application/x-www-form-urlencoded'}}
    
   );
@@ -229,7 +229,7 @@ var handleFavourite=async(m)=>{
 if(!fav.includes(id)){
   setFav([...fav,id]);
  
-   var f=await axios.post("/addfav",snd,
+   var f=await axios.post("https://mernmovieashokbk.onrender.com/addfav",snd,
    {headers: {'content-type': 'application/x-www-form-urlencoded'}}
   );
   //console.log(f);
@@ -239,7 +239,7 @@ else{
   const index = array.indexOf(id);
   array.splice(index, 1);
   setFav([...array]);
-  var f=await axios.post("/deletefav",snd,
+  var f=await axios.post("https://mernmovieashokbk.onrender.com/deletefav",snd,
    {headers: {'content-type': 'application/x-www-form-urlencoded'}}
   );
   //console.log(f);
