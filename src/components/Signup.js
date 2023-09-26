@@ -10,14 +10,17 @@ export default function Signup() {
   });
 
   useEffect(()=>{
-   
+   //console.log('signup');
     auth2();
  
   },[]);
 
   var auth2= ()=>{
     var c=localStorage.getItem('ashokcookie');
-    if(c!=null&&c.length>10)navigate('/');
+   // console.log(c);
+    if(c!=null&&c.length>10){
+     // console.log( "u r logined")
+      navigate('/');}
   }
   function Userdata(e){
    //console.log(e.target.name);

@@ -21,7 +21,6 @@ function App() {
        
         <Route exact path='/'element={< Lists />} />
         <Route  path="/favourites" element={<Favourites/>} />
-        <Route path="/contact" element={ <Logout/> } />
         <Route path="/signin" element={<Signin/>} />
         <Route path="/signup" element={  <Signup/> } />
         <Route path="/trending" element={ <Trending/>} />
