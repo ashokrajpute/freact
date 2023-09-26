@@ -10,16 +10,16 @@ export default function Signup() {
   });
 
   useEffect(()=>{
-   //console.log('signup');
+   console.log('signup');
     auth2();
  
   },[]);
 
   var auth2= ()=>{
     var c=localStorage.getItem('ashokcookie');
-   // console.log(c);
+    console.log(c);
     if(c!=null&&c.length>10){
-     // console.log( "u r logined")
+      console.log( "u r logined")
       navigate('/');}
   }
   function Userdata(e){
@@ -64,7 +64,7 @@ export default function Signup() {
   userpassword:password
  };
 
-  var d=await axios.post('https://mernmovieashokbk.onrender.com/register', data,
+  var d=await axios.post('https://mernmovieashokbk.onrender.com//register', data,
   {headers: {'content-type': 'application/x-www-form-urlencoded'}}
 );
   setuserinfo({
@@ -74,6 +74,7 @@ export default function Signup() {
  
  if(d.data=="Registered"){
   window.alert("Registered");
+  console.log('here');
   navigate("/signin");
  }
  else{

@@ -157,19 +157,13 @@ var [fav,setFav]=useState([]);
 
 useEffect(()=>{
   auth();
-  setInterval(() => {
-    auth2();
-  },5000);
- 
   
 },[]);
-useEffect(()=>{
-  setpage(1);
-},[]);
-var auth2= ()=>{
-  var c=localStorage.getItem('ashokcookie');
-  if(c==null||c.length<5)navigate('/signin');
-}
+
+// var auth2= ()=>{
+//   var c=localStorage.getItem('ashokcookie');
+//   if(c==null||c.length<5)navigate('/signin');
+// }
 
 var auth=async ()=>{
   var c=localStorage.getItem('ashokcookie');
@@ -189,6 +183,7 @@ var auth=async ()=>{
     navigate('/signin');
   }
  else{
+  setpage(1);
   bringbackendfav(d.data);
  }
 }

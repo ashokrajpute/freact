@@ -63,7 +63,7 @@ useremail!=='123456789'?
 <Link to="/signin" className="nav-link"style={{fontSize:"1.1rem",padding:"0.5rem"}}> signin</Link>
 </li>
 <li className="nav-item">
-<Link to="/signup" className="nav-link"style={{fontSize:"1.1rem",padding:"0.5rem"}}> signup</Link>
+<Link to="/signup" className="nav-link"style={{fontSize:"1.1rem",padding:"0.5rem"}}> osignup</Link>
 </li>
 
 </>

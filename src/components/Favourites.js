@@ -26,17 +26,17 @@ export default function Favourites() {
  useEffect(()=>{
   auth();
   //interv();
-  setInterval(() => {
-    auth2();
-  },5000);
+  // setInterval(() => {
+  //   auth2();
+  // },5000);
 
  
   
   },[]);
-  var auth2= ()=>{
-    var c=localStorage.getItem('ashokcookie');
-    if(c==null||c.length<5)navigate('/signin');
-  }
+  // var auth2= ()=>{
+  //   var c=localStorage.getItem('ashokcookie');
+  //   if(c==null||c.length<5)navigate('/signin');
+  // }
   var auth=async ()=>{
     var c=localStorage.getItem('ashokcookie');
     //console.log("=-",c);
@@ -46,7 +46,7 @@ export default function Favourites() {
     c=JSON.parse(c);
     //console.log("->",c);
     
-    var d=await axios.post('https://mernmovieashokbk.onrender.com/isauthenticated',c,
+    var d=await axios.post('https://mernmovieashokbk.onrender.com//isauthenticated',c,
     {headers: {'content-type': 'application/x-www-form-urlencoded'}}
      
     );

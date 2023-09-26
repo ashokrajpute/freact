@@ -20,11 +20,11 @@ function App() {
    <Routes>
        
         <Route exact path='/'element={< Lists />} />
-        <Route  path="/favourites" element={<Favourites/>} />
-        <Route path="/signin" element={<Signin/>} />
-        <Route path="/signup" element={  <Signup/> } />
-        <Route path="/trending" element={ <Trending/>} />
-        <Route path="/logout" element={ <Logout/>} />
+        <Route exact path="/favourites" element={<Favourites/>} />
+        <Route exact path="/signin" element={<Signin/>} />
+        <Route exact path="/signup" element={<Signup/>} />
+        <Route exact path="/trending" element={<Trending/>} />
+        <Route exact path="/logout" element={<Logout/>}/>
         <Route path="*" element ={<Notfound/>}/>
       </Routes>
    <Footer/>
