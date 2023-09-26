@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect }from 'react'
 import registerimg from "./registerimg.png";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -9,9 +9,19 @@ export default function Signup() {
     password:""
   });
 
+  useEffect(()=>{
+   
+    auth2();
+ 
+  },[]);
+
+  var auth2= ()=>{
+    var c=localStorage.getItem('ashokcookie');
+    if(c!=null&&c.length>10)navigate('/');
+  }
   function Userdata(e){
-   console.log(e.target.name);
-   console.log(e.target.value);
+   //console.log(e.target.name);
+   //console.log(e.target.value);
    var {name,value}=e.target;
    if(name==="email"){
     setuserinfo((prevdata)=>{

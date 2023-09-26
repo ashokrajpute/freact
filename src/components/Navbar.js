@@ -13,24 +13,25 @@ useEffect(()=>{
   
 });
     
+
 function changeNavbar(){
- // console.log('show',show);
-  var c=cookie.get('ashokcookies');
-  if(c!==undefined&&c.length>10){
-  c=c.substring(2);
-  c=JSON.parse(c);
-  //console.log('navbar',c.e);
-  if(useremail!==c.e){
+  // console.log('show',show);
+  var c=localStorage.getItem('ashokcookie');
+   //console.log("=>",c);
+   if(c==null||c.length<5){
+   // console.log("h");
+    if(useremail!=='123456789')
+    {setuseremail('123456789');}
+   }
+   else{
+     c=JSON.parse(c);
+     //console.log("->",c);
     setuseremail(c.e);
     setusername(c.e.substr(0,c.e.length - 10));
+ 
+   }
+ 
   }
-  }
-  else{
-    if(useremail!=='123456789')
-  {setuseremail('123456789');}
-  }
-
-}
 
   return (
    

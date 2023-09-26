@@ -5,19 +5,20 @@ import cookie from 'js-cookie';
 export default function Logout() {
   const navigate = useNavigate();
    useEffect(()=>{
-  var c=cookie.get('ashokcookies');
-  console.log(c);
-  if(c==undefined||c.length<9){
-    navigate('/signin');
-  }
+    var c=localStorage.getItem('ashokcookie');
+    //console.log("=",c);
+    if(c==null||c.length<5)navigate('/signin');
+    
 
    },[]);
 
 
   var handlelogout=async ()=>{
   var d=await axios.post('https://mernmovieashokbk.onrender.com/logout');
-  console.log(d);
-  if(d.data==="Logout")navigate('/');
+  //console.log(d);
+  if(d.data==="Logout"){
+    localStorage.setItem('ashokcookie',null);
+    navigate('/');}
   else{
     window.alert("cant able to logout");
   }

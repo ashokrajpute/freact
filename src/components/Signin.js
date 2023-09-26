@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import loginimg from "./loginimg.png";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -8,10 +8,21 @@ export default function Signin() {
     email:"",
     password:""
   });
+  useEffect(()=>{
+   
+      auth2();
+   
+    },[]);
+
+    var auth2= ()=>{
+      var c=localStorage.getItem('ashokcookie');
+      if(c!=null&&c.length>10)navigate('/');
+    }
+ 
 
   function Userdata(e){
-    console.log(e.target.name);
-    console.log(e.target.value);
+   // console.log(e.target.name);
+    //console.log(e.target.value);
     var {name,value}=e.target;
     if(name==="email"){
      setuserinfo((prevdata)=>{
@@ -34,10 +45,10 @@ export default function Signin() {
 
 
    var handleLogin=async (e)=>{
-    console.log(userinfo)
+   // console.log(userinfo)
     e.preventDefault();
  var {email,password}=userinfo;
- console.log(email+" "+password);
+ //console.log(email+" "+password);
  if(!email.includes("@gmail.com")||email.length<11){
   window.alert("enter a valid email");
   return;
@@ -51,7 +62,7 @@ export default function Signin() {
   username:email,
   password:password
  };
-console.log("==",data);
+//console.log("==",data);
   var d=await axios.post('https://mernmovieashokbk.onrender.com/login', data,
   { 
     headers: {'content-type': 'application/x-www-form-urlencoded'}
@@ -59,14 +70,17 @@ console.log("==",data);
 },
   
 );
-console.log("===========[]========")
-console.log("load+=",d.data);
+//console.log("===========[]========")
+//console.log("load+=",d.data);
   setuserinfo({
     email:"",
     password:""
   });
  
- if(d.data=="u r login"){
+ if(d.data!="Unable to login"){
+  var ckie=JSON.stringify(d.data);
+  var pol=localStorage.setItem('ashokcookie',ckie);
+  //console.log(pol);
   window.alert("u r login");
   navigate("/");
   
