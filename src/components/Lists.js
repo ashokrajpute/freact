@@ -156,7 +156,7 @@ const [data,setdata]=useState([]);
 var [fav,setFav]=useState([]);
 
 useEffect(()=>{
-  console.log('1');
+  
   auth();
   
 },[]);
@@ -197,7 +197,9 @@ var bringbackendfav=(k)=>{
   setTimeout(() => {
     //console.log(t);
     setFav([...t]);
+    console.log(fav,"==");
   }, 50);
+  
   
   setTimeout(() => {
    //console.log("=sfav=",fav);
@@ -242,7 +244,7 @@ if(!fav.includes(id)){
    var f=await axios.post("https://mernmovieashokbk.onrender.com/addfav",snd,
    {headers: {'content-type': 'application/x-www-form-urlencoded'}}
   );
-  //console.log(f);
+  console.log(fav);
 }
 else{
   var array=[...fav];
