@@ -224,7 +224,7 @@ var handleFavourite=async(m)=>{
   //console.log(id);
   var c=localStorage.getItem('ashokcookie');
   console.log(c);
-  c=c.substring(2);
+  c=c.substring(1);
   console.log(c);
   var obj=JSON.parse(c);
   //console.log(typeof(obj));
