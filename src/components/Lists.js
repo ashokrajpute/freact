@@ -189,20 +189,26 @@ var auth=async ()=>{
  }
 }
 }
-var bringbackendfav=(k)=>{
-  //console.log("+",typeof(k));
+async function  looper(k){
+
   var t=k[0].fav.map((b)=>{
-   return Number(b.id);
-  });
-  setTimeout(() => {
-    //console.log(t);
+    return Number(b.id);
+   });
+   return t;
+
+}
+var bringbackendfav=async (k)=>{
+  //console.log("+",typeof(k));
+  var t=await looper(k);
+ 
     setFav([...t]);
-    console.log(fav,"==");
-  }, 50);
+   
+  
   
   
   setTimeout(() => {
    //console.log("=sfav=",fav);
+   console.log(fav,"==");
   }, 100);
 }
 
@@ -244,7 +250,7 @@ if(!fav.includes(id)){
    var f=await axios.post("https://mernmovieashokbk.onrender.com/addfav",snd,
    {headers: {'content-type': 'application/x-www-form-urlencoded'}}
   );
-  console.log(fav);
+  
 }
 else{
   var array=[...fav];
