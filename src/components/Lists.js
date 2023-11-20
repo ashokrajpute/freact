@@ -222,7 +222,7 @@ if(pg+page>0){
 var handleFavourite=async(m)=>{
   var id=Number(m.id);
   //console.log(id);
-  var c=cookie.get('ashokcookie');
+  var c=localStorage.getItem('ashokcookie');
   console.log(c);
   c=c.substring(2);
   console.log(c);
