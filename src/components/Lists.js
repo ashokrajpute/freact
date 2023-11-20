@@ -228,6 +228,7 @@ var handleFavourite=async(m)=>{
   //console.log(c);
   //var obj=JSON.parse(c);
   //console.log(typeof(obj));
+  console.log(fav);
   var snd={
   user:obj,
   movie:m
