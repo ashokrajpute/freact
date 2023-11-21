@@ -192,13 +192,14 @@ var auth=async ()=>{
 }
 var bringbackendfav=async (k)=>{
   //console.log("+",typeof(k));
-  var t=k[0].fav.map((b)=>{
-    return Number(b.id);
+  var ololo=k[0].fav.map((b)=>{
+    console.log(b.id);
+    return parseInt(b.id);//Number(b.id);
    });
    setTimeout(() => {
     //console.log("=sfav=",fav);
-    console.log(t,"t");
-    setFav([...t]);
+    console.log(ololo,"ololo");
+    setFav([...ololo]);
    
    }, 50);
  
