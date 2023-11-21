@@ -197,6 +197,7 @@ var bringbackendfav=async (k)=>{
    });
    setTimeout(() => {
     //console.log("=sfav=",fav);
+    console.log(t,"t");
     setFav([...t]);
    
    }, 50);
@@ -240,9 +241,8 @@ var handleFavourite=async(m)=>{
   movie:m
   }
 if(!fav.includes(id)){
-  var tipo=[...fav];
-  tipo.push(id);
-  setFav([...tipo]);
+  
+  setFav([...fav,id]);
  
    var f=await axios.post("https://mernmovieashokbk.onrender.com/addfav",snd,
    {headers: {'content-type': 'application/x-www-form-urlencoded'}}
