@@ -184,28 +184,23 @@ var auth=async ()=>{
     navigate('/signin');
   }
  else{
-  setpage(1);
   bringbackendfav(d.data);
+  setpage(1);
+  
  }
 }
 }
-async function  looper(k){
-
+var bringbackendfav=async (k)=>{
+  //console.log("+",typeof(k));
   var t=k[0].fav.map((b)=>{
     return Number(b.id);
    });
-   return t;
-
-}
-var bringbackendfav=async (k)=>{
-  //console.log("+",typeof(k));
-  var t=await looper(k);
- 
+   setTimeout(() => {
+    //console.log("=sfav=",fav);
     setFav([...t]);
-   
-  
-  
-  
+   }, 50);
+ 
+    
   setTimeout(() => {
    //console.log("=sfav=",fav);
    console.log(fav,"==");
