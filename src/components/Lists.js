@@ -184,6 +184,7 @@ var auth=async ()=>{
     navigate('/signin');
   }
  else{
+  console.log("k",d.data);
   bringbackendfav(d.data);
   //setpage(1);
   
@@ -191,7 +192,7 @@ var auth=async ()=>{
 }
 }
 var bringbackendfav=async (k)=>{
-  console.log("+",typeof(k),k);
+  console.log("+",typeof(k));
   var ololo=k[0].fav.map((b)=>{
     console.log(b.id);
     return parseInt(b.id);//Number(b.id);
@@ -228,8 +229,8 @@ if(pg+page>0){
 };
 
 var handleFavourite=async(m)=>{
-  var id=Number(m.id);
-  //console.log(id);
+  var id=parseInt(m.id);
+  console.log(id);
   var obj=JSON.parse(localStorage.getItem('ashokcookie'));
   //console.log(c);
   //c=c.substring(1);
@@ -244,6 +245,7 @@ var handleFavourite=async(m)=>{
 if(!fav.includes(id)){
   
   setFav([...fav,id]);
+  console.log(snd);
  
    var f=await axios.post("https://mernmovieashokbk.onrender.com/addfav",snd,
    {headers: {'content-type': 'application/x-www-form-urlencoded'}}
