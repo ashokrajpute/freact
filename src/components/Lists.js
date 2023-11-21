@@ -191,7 +191,7 @@ var auth=async ()=>{
 }
 }
 var bringbackendfav=async (k)=>{
-  //console.log("+",typeof(k));
+  console.log("+",typeof(k),k);
   var ololo=k[0].fav.map((b)=>{
     console.log(b.id);
     return parseInt(b.id);//Number(b.id);
