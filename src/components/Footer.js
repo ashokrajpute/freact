@@ -5,7 +5,7 @@ export default function Footer() {
     
       <div className="footer-container">
  
-   © Ashok College Project(GNE)
+   © Made with Love
 </div>
   
   )

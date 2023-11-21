@@ -185,7 +185,7 @@ var auth=async ()=>{
   }
  else{
   bringbackendfav(d.data);
-  setpage(1);
+  //setpage(1);
   
  }
 }
@@ -198,12 +198,14 @@ var bringbackendfav=async (k)=>{
    setTimeout(() => {
     //console.log("=sfav=",fav);
     setFav([...t]);
+   
    }, 50);
  
     
   setTimeout(() => {
    //console.log("=sfav=",fav);
    console.log(fav,"==");
+   setpage(1);
   }, 100);
 }
 
