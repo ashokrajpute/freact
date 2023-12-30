@@ -20,6 +20,47 @@ button:hover {
   transform: scale(1.2);
   
 }
+.bannerout{
+  width:99%;
+  height:70%;
+
+  
+}
+.banner{
+  
+  width:99%;
+  height:70%;
+  
+  margin-top:1vh;
+  margin-bottom:3vh;
+  
+}
+
+.cardimgb{
+  width:100%;
+  height:70vh;
+  
+  border:10px solid black;
+}
+
+.card-name{
+  color:white;
+  position:absolute;
+  top:55vh;
+  margin-left: 1rem;
+  margin-top:1vh;
+  margin-bottom:6vh;
+  }
+.card-overview{
+  font-size: small;
+  color:white;
+  position:absolute;
+  top:62vh;
+  padding-left:1rem;
+ 
+  margin-top:2rem;
+  
+}
 .Banner{
  
     position:relative;
@@ -341,4 +382,91 @@ left:5%;
   left:5%;
   }
 } 
+
+.randomimg{
+  width: 50vh;
+  height: 50vh;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
 /* ===== */
+.frandom{
+  /* background: red; */
+    width: 90%;
+    display: flex;
+    gap: 30px;
+    margin: 0 auto;
+    margin-top: 30px;
+    height: 100vh;
+
+}
+.movie-title{
+  font-style: bold;
+  font-weight: bold;
+  font-size: 2rem;
+  color: blue;
+}
+.movie-desc{
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 10px;
+}
+.movie-Rede{
+
+  font-size: 2rem;
+  color: blue;
+  
+}
+.randomimg{
+  width: 60vw;
+  height: 80vh;
+  border-radius: 30px;
+}
+.ssflex{
+ width:100vw;
+ height:85vh;
+ display:flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+
+position:relative;
+}
+.sbox{
+   
+  width:100vw;
+  height:10vh;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position:absolute;
+  top:1vh;
+}
+.s-fav-form{
+ width:100vw;
+ height:100%;
+ display:flex;
+ flex-direction: row;
+ align-items: center;
+ justify-content: center;
+}
+.s-inp{
+  width:50%;
+  height:90%;
+  margin:5px;
+  border-radius: 5px;
+}
+.s-btn{
+  width:10%;
+  height:90%;
+  margin:5px;
+  border-radius: 5px;
+
+}
+.s-mdata{
+  width:80vw;
+  display: flex;
+  flex-direction: column;
+  position:absolute;
+  top:13vh;
+}

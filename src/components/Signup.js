@@ -64,7 +64,7 @@ export default function Signup() {
   userpassword:password
  };
 
-  var d=await axios.post('https://mernmovieashokbk.onrender.com/register', data,
+  var d=await axios.post('/register', data,
   {headers: {'content-type': 'application/x-www-form-urlencoded'}}
 );
   setuserinfo({
@@ -75,7 +75,7 @@ export default function Signup() {
  if(d.data=="Registered"){
   window.alert("Registered");
   console.log('here');
-  navigate("/signin");
+  navigate("/login");
  }
  else{
   window.alert(d.data);

@@ -7,14 +7,14 @@ export default function Logout() {
    useEffect(()=>{
     var c=localStorage.getItem('ashokcookie');
     //console.log("=",c);
-    if(c==null||c.length<5)navigate('/signin');
+    if(c==null||c.length<5){console.log('herelogout');navigate('/login');}
     
 
    },[]);
 
 
   var handlelogout=async ()=>{
-  var d=await axios.post('https://mernmovieashokbk.onrender.com/logout');
+  var d=await axios.post('/logout');
   //console.log(d);
   if(d.data==="Logout"){
     localStorage.setItem('ashokcookie',null);

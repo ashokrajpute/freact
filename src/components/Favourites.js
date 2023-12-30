@@ -40,19 +40,19 @@ export default function Favourites() {
   var auth=async ()=>{
     var c=localStorage.getItem('ashokcookie');
     //console.log("=-",c);
-    if(c==null||c.length<5)navigate('/signin');
+    if(c==null||c.length<5||c=='random'){console.log('herefav');navigate('/login');}
     else{
     //c=c.substring(0);
     c=JSON.parse(c);
     //console.log("->",c);
     
-    var d=await axios.post('https://mernmovieashokbk.onrender.com/isauthenticated',c,
+    var d=await axios.post('/isauthenticated',c,
     {headers: {'content-type': 'application/x-www-form-urlencoded'}}
      
     );
     
    if(!d){
-      navigate('/signin');
+      navigate('/login');
     }
     else{
 

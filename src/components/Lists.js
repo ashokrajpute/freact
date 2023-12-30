@@ -3,9 +3,14 @@ import axios from "axios";
 import Banner from './Banner';
 import { useNavigate } from "react-router-dom";
 import cookie from 'js-cookie';
+import {useDispatch,useSelector} from "react-redux";
+import {handleMoviedata} from '../slice/listSlice'
 export default function Lists() {
   const navigate = useNavigate();
   var [token,settoken]=useState("");
+  const [movie,setMovie]=useState("")
+
+  
 //   var data=[{
 //     adult: false,
 //     backdrop_path: '/2Icjry0xdRSNxrtsBR1F47b9r3u.jpg',
@@ -169,19 +174,19 @@ useEffect(()=>{
 var auth=async ()=>{
   var c=localStorage.getItem('ashokcookie');
   
-  if(c==null||c.length<5)navigate('/signin');
+  if(c==null||c.length<5||c=='random'){console.log('herelist');navigate('/login');}
   else{
   //c=c.substring(0);
   c=JSON.parse(c);
-  //console.log("->",c);
-  
-  var d=await axios.post('https://mernmovieashokbk.onrender.com/isauthenticated',c,
+  //console.log("->",c);  https://mernmovieashokbk.onrender.com
+  //http://localhost:5000/
+  var d=await axios.post('/isauthenticated',c,
   {headers: {'content-type': 'application/x-www-form-urlencoded'}}
    
   );
   //console.log("+==",d);
   if(!d){
-    navigate('/signin');
+    navigate('/login');
   }
  else{
   console.log("k",d.data);
@@ -227,6 +232,20 @@ if(pg+page>0){
   setpage(pg+page);
 };
 };
+const dispatch=useDispatch()
+useEffect(()=>{
+  
+  dispatch(handleMoviedata(movie))
+},[movie])
+
+function handleParticular(m){
+  setMovie(m)
+  setTimeout(() => {
+    navigate('/random');
+  }, 500);
+ 
+
+}
 
 var handleFavourite=async(m)=>{
   var id=parseInt(m.id);
@@ -247,7 +266,7 @@ if(!fav.includes(id)){
   setFav([...fav,id]);
   console.log(snd);
  
-   var f=await axios.post("https://mernmovieashokbk.onrender.com/addfav",snd,
+   var f=await axios.post("/addfav",snd,
    {headers: {'content-type': 'application/x-www-form-urlencoded'}}
   );
   
@@ -257,7 +276,7 @@ else{
   const index = array.indexOf(id);
   array.splice(index, 1);
   setFav([...array]);
-  var f=await axios.post("https://mernmovieashokbk.onrender.com/deletefav",snd,
+  var f=await axios.post("/deletefav",snd,
    {headers: {'content-type': 'application/x-www-form-urlencoded'}}
   );
   //console.log(f);
@@ -275,7 +294,7 @@ else{
         {
           data.map((movie)=>(
               <div key={movie.id} className="movie-div">
-                <img className="List-img" src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}alt="Card"/>
+                <img className="List-img " src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}alt="Card" onClick={()=>{handleParticular(movie)}}/>
               {fav.includes(Number(movie.id))?<button className="List-button" onClick={()=>{handleFavourite(movie)}} >Remove</button>:<button className="List-button" onClick={()=>{handleFavourite(movie)}} >Add</button>}
               </div>
           ))

@@ -63,7 +63,7 @@ export default function Signin() {
   password:password
  };
 //console.log("==",data);
-  var d=await axios.post('https://mernmovieashokbk.onrender.com/login', data,
+  var d=await axios.post('/login', data,
   { 
     headers: {'content-type': 'application/x-www-form-urlencoded'}
   

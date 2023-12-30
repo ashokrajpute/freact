@@ -20,8 +20,13 @@ function changeNavbar(){
    //console.log("=>",c);
    if(c==null||c.length<5){
    // console.log("h");
-    if(useremail!=='123456789')
-    {setuseremail('123456789');}
+   console.log("nav");
+    //if(useremail!=='123456789'){setuseremail('123456789');console.log('bar');}
+    localStorage.setItem('ashokcookie','random');
+    setuseremail('123456789');
+   }
+   else if(c=='random'){
+   console.log('nochange');
    }
    else{
      c=JSON.parse(c);
@@ -43,6 +48,9 @@ function changeNavbar(){
 
   <div className="collapse navbar-collapse" id="navbarSupportedContent">
     <ul className="navbar-nav ml-auto">
+    <li className="nav-item ">
+      <Link to="/Search" className="nav-link " style={{fontSize:"1.1rem",padding:"0.5rem"}}>Search</Link>
+      </li>
       <li className="nav-item ">
       <Link to="/favourites" className="nav-link " style={{fontSize:"1.1rem",padding:"0.5rem"}}>Favourites</Link>
       </li>
@@ -60,10 +68,10 @@ useremail!=='123456789'?
 </>  :
 <>
 <li className="nav-item">
-<Link to="/signin" className="nav-link"style={{fontSize:"1.1rem",padding:"0.5rem"}}> signin</Link>
+<Link to="/login" className="nav-link"style={{fontSize:"1.1rem",padding:"0.5rem"}}> Sign In</Link>
 </li>
 <li className="nav-item">
-<Link to="/signup" className="nav-link"style={{fontSize:"1.1rem",padding:"0.5rem"}}> osignup</Link>
+<Link to="/signup" className="nav-link"style={{fontSize:"1.1rem",padding:"0.5rem"}}> Sign Up</Link>
 </li>
 
 </>

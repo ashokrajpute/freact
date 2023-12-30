@@ -12,30 +12,30 @@ export default function Trending() {
    const navigate = useNavigate();
    useEffect(()=>{
     auth();
-    setInterval(() => {
-      auth2();
-    }, 5000);
+    // setInterval(() => {
+    //   auth2();
+    // }, 5000);
     },[]);
 
     var auth2= ()=>{
       var c=localStorage.getItem('ashokcookie');
-      if(c==null||c.length<5)navigate('/signin');
+      if(c==null||c.length<5||c=='random'){console.log('heretren2');navigate('/login');}
     }
     var auth=async ()=>{
       var c=localStorage.getItem('ashokcookie');
   //console.log("=",c);
-  if(c==null||c.length<5)navigate('/signin');
+  if(c==null||c.length<5||c=='random'){console.log('heretren');navigate('/login');}
   else{
   //c=c.substring(0);
   c=JSON.parse(c);
  // console.log("->",c);
       
-      var d=await axios.post('https://mernmovieashokbk.onrender.com/isauthenticated',c,
+      var d=await axios.post('/isauthenticated',c,
       {headers: {'content-type': 'application/x-www-form-urlencoded'}}
        
       );
       if(!d){
-        navigate('/signin');
+        navigate('/login');
       }}
     }
 
